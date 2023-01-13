@@ -1,8 +1,8 @@
 <template>
-	<span class="menu-icon" :style="{width: size + 'px', height: size + 'px'}" @click="onSwitch">
-		<span class="menu-icon-line" :style="lineStyle(1)"></span>
-		<span class="menu-icon-line" :style="{ backgroundColor: color, width: size + 'px', opacity: close ? 0 : 1 }"></span>
-		<span class="menu-icon-line" :style="lineStyle(3)"></span>
+	<span class="switch-icon" :style="{width: size + 'px', height: size + 'px'}" @click="onSwitch">
+		<span class="switch-icon-line" :style="lineStyle(1)"></span>
+		<span class="switch-icon-line" :style="{ backgroundColor: color, width: size + 'px', opacity: close ? 0 : 1 }"></span>
+		<span class="switch-icon-line" :style="lineStyle(3)"></span>
 	</span>
 </template>
 
@@ -11,21 +11,21 @@ export default {
 	props: {
 		size: {
 			type: Number,
-			default: 18
+			default: 18,
 		},
 		color: {
 			style: String,
-			default: "#d6a91b"
-		}
+			default: "#d6a91b",
+		},
 	},
 	computed: {
 		closeLineWidth() {
 			return 1.4142 * (this.size - 2);
-		}
+		},
 	},
 	data() {
 		return {
-			close: false
+			close: false,
 		};
 	},
 	methods: {
@@ -42,13 +42,13 @@ export default {
 				_style.transform = `rotate(${index === 3 ? "-" : ""}45deg)`;
 			}
 			return _style;
-		}
-	}
+		},
+	},
 };
 </script>
 
 <style lang="scss">
-.menu-icon {
+.switch-icon {
 	cursor: pointer;
 	position: relative;
 	display: inline-flex;
